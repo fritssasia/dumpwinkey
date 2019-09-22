@@ -1,28 +1,45 @@
 import os, sys
+from colorama import Fore, Back, Style
 
-class dcolors:
-    OKGREEN = '\033[92m'
-    WARNING = '\033[93m'
-    FAIL = '\033[91m'
-    BOLD = '\033[1m'
+RED = Fore.RED
+YELLOW = Fore.YELLOW
+GREEN = Fore.GREEN
+BLUE = Fore.BLUE
 
-if not os.geteuid()==0:
-    sys.exit(dcolors.BOLD+"Only root can run this script!"+dcolors.FAIL)
+def check_access():
+    if not os.geteuid()==0:
+        sys.exit(RED+"WARNING!!!\nThis tool requires root access!"+YELLOW+"\nTry : sudo dumpwinkey.py")
+    else:
+        header()
+        choice()
+        app()
 
-check_COA = os.system('ls /sys/firmware/acpi/tables/MSDM')
-os.system('clear')
+def header():
+    print "    " + YELLOW + "===================================="
+    print "    " + BLUE + "[+] ""       "+ BLUE + "DUMPWINKEY""           " + BLUE +" [+]"
+    print "    " + BLUE +   "[+]  "+ GREEN + "Created by : Frits Sasia" + BLUE +"    [+]"
+    print "    " + BLUE +   "[+] "+ GREEN + "Facebook : Rivas Frits Sasia" + BLUE +" [+]"
+    print "    " + YELLOW + "===================================="
 
-if check_COA == False:
-    print dcolors.OKGREEN+"Windows key found!"
-else:
-    print dcolors.BOLD+"Cannot found windows key!"+dcolors.FAIL
+def choice():
+    pil = raw_input("Continue this tool? [y/n] : ")
+    if pil == "y":
+        app()
+    else:
+        sys.exit
 
-winkey = os.system('sudo cat /sys/firmware/acpi/tables/MSDM | tail -c 32 | xargs -0 echo "Windows product key :">winkey.txt')
 
-file_winkey = open("winkey.txt", "r")
-files = file_winkey.read()
+def app():
+    check_COA = os.system('ls /sys/firmware/acpi/tables/MSDM')
+    os.system('clear')
 
-print files
-file_winkey.close()
+    if check_COA == False:
+        print YELLOW+"Windows key found!"
+        os.system('sudo cat /sys/firmware/acpi/tables/MSDM | tail -c 32 | xargs -0 echo "Windows product key :">winkey.txt')
+        print GREEN+"Windows product key has been saved!"
+    else:
+        print RED+"Cannot found windows key!"
+        os.system('sudo cat /sys/firmware/acpi/tables/MSDM | tail -c 32 | xargs -0 echo "Windows product key :">winkey.txt')
+        print "Sorry we could not find your windows key! :("
 
-print dcolors.BOLD+"Windows product key has been saved!"+dcolors.OKGREEN
+check_access()
