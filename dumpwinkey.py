@@ -22,7 +22,7 @@ def header():
     print "    " + YELLOW + "===================================="
 
 def choice():
-    pil = raw_input("Continue this tool? [y/n] : ")
+    pil = raw_input("Continue to this tool? [y/n] : ")
     if pil == "y":
         app()
     else:
