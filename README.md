@@ -35,4 +35,4 @@ You can also help develop it! Thank you :)
 ![alt text](https://imgur.com/Ez6IG2Z.png "Your Windows product key has been saved")
 
 ### The final result
-![alt text](https://https://imgur.com/hTFM48r.jpg "You have successfully gotten a Windows product key")
+![alt text](https://imgur.com/sFojjvv.png "You have successfully gotten a Windows product key")
