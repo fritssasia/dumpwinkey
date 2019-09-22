@@ -1,6 +1,6 @@
 1. Download the file
 2. pip install -r requirements.txt
-3. python dumpwinkey.py
+3. sudo python dumpwinkey.py (because this tool requires root access)
 
 Done
 Good Luck!
