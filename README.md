@@ -26,13 +26,13 @@ You can also help develop it! Thank you :)
 
 # Screenshot
 ### display when dumpwinkey doesn't have root access
-![alt text](https://imgur.com/2H7hnSr "Need root access")
+![alt text](https://imgur.com/2H7hnSr.png "Need root access")
 
 ### First look
-![alt text](https://imgur.com/h2n2zih "First look dumpwinkey")
+![alt text](https://imgur.com/h2n2zih.png "First look dumpwinkey")
 
 ### Success get the windows product key
-![alt text](https://imgur.com/Ez6IG2Z "Your Windows product key has been saved")
+![alt text](https://imgur.com/Ez6IG2Z.png "Your Windows product key has been saved")
 
 ### The final result
-![alt text](https://https://imgur.com/hTFM48r "You have successfully gotten a Windows product key")
+![alt text](https://https://imgur.com/hTFM48r.jpg "You have successfully gotten a Windows product key")
