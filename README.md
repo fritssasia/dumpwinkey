@@ -6,18 +6,20 @@ this tool actually only helps automate the process of finding a Windows product 
 
 # Requirements
 ```
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 
 # How To Use
 ```
-python dumpwinkey.py
+sudo python dumpwinkey.py
 ```
 
 
 # Note
-sorry if this tool is less than perfect, I'm still a newbie
+- dumpwinkey requires root access
+
+- sorry if this tool is less than perfect, I'm still a newbie
 help me by giving advice and input
 You can also help develop it! Thank you :)
 
