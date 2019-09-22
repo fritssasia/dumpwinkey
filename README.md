@@ -5,14 +5,16 @@ by checking whether COA (Certificate of Authenticity) is embedded in the BIOS or
 this tool actually only helps automate the process of finding a Windows product key, by utilizing the os module
 
 # Requirements
-'''
-pip install -r requirements.txt
-'''
+```
+pip3 install -r requirements.txt
+```
+
 
 # How To Use
-'''
+```
 python dumpwinkey.py
-'''
+```
+
 
 # Note
 sorry if this tool is less than perfect, I'm still a newbie
