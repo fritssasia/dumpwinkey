@@ -1,11 +1,13 @@
 import os, sys
 from colorama import Fore, Back, Style
 
+#color using colorama
 RED = Fore.RED
 YELLOW = Fore.YELLOW
 GREEN = Fore.GREEN
 BLUE = Fore.BLUE
 
+#check root access
 def check_access():
     if not os.geteuid()==0:
         sys.exit(RED+"WARNING!!!\nThis tool requires root access!"+YELLOW+"\nTry : sudo dumpwinkey.py")
@@ -14,6 +16,7 @@ def check_access():
         choice()
         app()
 
+#header
 def header():
     print "    " + YELLOW + "===================================="
     print "    " + BLUE + "[+] ""       "+ BLUE + "DUMPWINKEY""           " + BLUE +" [+]"
@@ -21,6 +24,8 @@ def header():
     print "    " + BLUE +   "[+] "+ GREEN + "Facebook : Rivas Frits Sasia" + BLUE +" [+]"
     print "    " + YELLOW + "===================================="
 
+#if yes : y
+#if no : n
 def choice():
     pil = raw_input("Continue to this tool? [y/n] : ")
     if pil == "y":
@@ -28,7 +33,9 @@ def choice():
     else:
         sys.exit
 
-
+'''
+check COA
+'''
 def app():
     check_COA = os.system('ls /sys/firmware/acpi/tables/MSDM')
     os.system('clear')
