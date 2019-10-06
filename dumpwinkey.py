@@ -1,41 +1,39 @@
+#Import module
 import os, sys
 from colorama import Fore, Back, Style
 
-#color using colorama
+#Color (using colorama module)
 RED = Fore.RED
 YELLOW = Fore.YELLOW
 GREEN = Fore.GREEN
 BLUE = Fore.BLUE
 
-#check root access
+#Check root access
 def check_access():
     if not os.geteuid()==0:
-        sys.exit(RED+"WARNING!!!\nThis tool requires root access!"+YELLOW+"\nTry : sudo dumpwinkey.py")
+        sys.exit(RED+"WARNING!!!\nThis tool requires root access!"+YELLOW+"\nTry : sudo python dumpwinkey.py")
     else:
         header()
         choice()
-        app()
 
-#header
+#Header
 def header():
+    os.system('clear')
     print "    " + YELLOW + "===================================="
     print "    " + BLUE + "[+] ""       "+ BLUE + "DUMPWINKEY""           " + BLUE +" [+]"
     print "    " + BLUE +   "[+]  "+ GREEN + "Created by : Frits Sasia" + BLUE +"    [+]"
     print "    " + BLUE +   "[+] "+ GREEN + "Facebook : Rivas Frits Sasia" + BLUE +" [+]"
     print "    " + YELLOW + "===================================="
 
-#if yes : y
-#if no : n
+#Option
 def choice():
     pil = raw_input("Continue to this tool? [y/n] : ")
     if pil == "y":
         app()
     else:
-        sys.exit
+        os.system('exit')
 
-'''
-check COA
-'''
+#Try to find your windows product key
 def app():
     check_COA = os.system('ls /sys/firmware/acpi/tables/MSDM')
     os.system('clear')
