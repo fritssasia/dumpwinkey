@@ -1,14 +1,14 @@
-#Import module
+# Import module 
 import os, sys
 from colorama import Fore, Back, Style
 
-#Color (using colorama module)
+# Color (using colorama module)
 RED = Fore.RED
 YELLOW = Fore.YELLOW
 GREEN = Fore.GREEN
 BLUE = Fore.BLUE
 
-#Check root access
+# Check root access
 def check_access():
     if not os.geteuid()==0:
         sys.exit(RED+"WARNING!!!\nThis tool requires root access!"+YELLOW+"\nTry : sudo python dumpwinkey.py")
@@ -16,7 +16,7 @@ def check_access():
         header()
         choice()
 
-#Header
+# Header
 def header():
     os.system('clear')
     print "    " + YELLOW + "===================================="
@@ -25,7 +25,7 @@ def header():
     print "    " + BLUE +   "[+] "+ GREEN + "Facebook : Rivas Frits Sasia" + BLUE +" [+]"
     print "    " + YELLOW + "===================================="
 
-#Option
+# Just Option
 def choice():
     pil = raw_input("Continue to this tool? [y/n] : ")
     if pil == "y":
@@ -33,18 +33,15 @@ def choice():
     else:
         os.system('exit')
 
-#Try to find your windows product key
+# The process of finding a windows product key
 def app():
-    check_COA = os.system('ls /sys/firmware/acpi/tables/MSDM')
-    os.system('clear')
-
-    if check_COA == False:
-        print YELLOW+"Windows key found!"
+    COA = '/sys/firmware/acpi/tables/MSDM' # COA (Certificate of Authenticity)
+    file = os.path.isfile(COA)
+    if file == True:
+        print GREEN+"\nMSDM file found! :)\nTry to find the windows product key"
         os.system('sudo cat /sys/firmware/acpi/tables/MSDM | tail -c 32 | xargs -0 echo "Windows product key :">winkey.txt')
-        print GREEN+"Windows product key has been saved!"
+        print GREEN+"Windows product key has been saved, please check the file winkey.txt"
     else:
-        print RED+"Cannot found windows key!"
-        os.system('sudo cat /sys/firmware/acpi/tables/MSDM | tail -c 32 | xargs -0 echo "Windows product key :">winkey.txt')
-        print "Sorry we could not find your windows key! :("
+        print RED+"\nCannot found MSDM file :( FAILED!"
 
 check_access()
